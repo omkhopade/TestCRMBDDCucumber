@@ -1,11 +1,13 @@
 package Utilities;
 
 import java.time.Duration;
+import java.util.concurrent.TimeoutException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -21,13 +23,13 @@ public class ActionUtilities extends DriverFactory{
 
 	
 	
-	public void sendValues(WebElement element, String text)
+	public void sendValues(By bylocator, String text)
 	{
 		try {
 			logger.info("text box started editing ");
-			element.clear();
+			driver.findElement(bylocator).clear();
 			logger.info("text box filling details");
-			element.sendKeys(text);
+			driver.findElement(bylocator).sendKeys(text);
 		}
 		catch (Exception e) {
 			
@@ -35,15 +37,15 @@ public class ActionUtilities extends DriverFactory{
 		}
 	}
 	
-	public void clickButton(WebElement ele)
+	public void clickButton(By locator)
 	{
 		try 
 		{
 			logger.info("waiting for button get visible ");
-			waitForElement(ele);
+			poolingWaitForElement(locator);
 			Actions action = new Actions(driver);
-			logger.info("Trying to click "+ ele);
-			action.click(ele).build().perform();
+			logger.info("Trying to click webElement");
+			action.click(driver.findElement(locator)).build().perform();
 			logger.info("Element is clicked succcessfully ");	
 		}
 		catch (Exception e) {
@@ -53,14 +55,26 @@ public class ActionUtilities extends DriverFactory{
 		}
 		
 	}
+	   
 	
-	
-	public void waitForElement(WebElement element)
+	public void waitForElement(By locator)
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-		wait.until(ExpectedConditions.visibilityOf(element));
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
 	}
 	
+	public void poolingWaitForElement(By locator)
+	{
+		FluentWait<WebDriver> fluent = new FluentWait<WebDriver>(driver)
+		
+				.withTimeout(Duration.ofSeconds(90))
+				.pollingEvery(Duration.ofMillis(400))
+				.ignoring(TimeoutException.class);
+		logger.info("Started polling time");
+		fluent.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
+		logger.info("Element is found and try to click");
+		
+	}
 	
 	public static void compareValues(String expected, String actual)
 	{
@@ -73,6 +87,7 @@ public class ActionUtilities extends DriverFactory{
 			else
 			{
 				logger.error("Expected value "+expected + " Actual Value "+actual +" are not match ");
+				
 			}
 		}
 		

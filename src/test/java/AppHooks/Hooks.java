@@ -5,14 +5,13 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 
 import DriverFactory.DriverFactory;
-import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
 public class Hooks extends DriverFactory{
 
 	WebDriver driver;
 	
-	@Before
+	@Before(order = 0)
 	public void setup()
 	{
 		driver =DriverFactory.initialized();
@@ -25,9 +24,5 @@ public class Hooks extends DriverFactory{
 	}
 	
 	
-	@After
-	public void tearDown()
-	{
-		driver.quit();
-	}
+
 }

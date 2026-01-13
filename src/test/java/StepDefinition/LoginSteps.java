@@ -35,5 +35,13 @@ public class LoginSteps extends DriverFactory{
 		ActionUtilities.compareValues("Free CRM", driver.getTitle());
 		Thread.sleep(10000);
 	}
+	
+	@Then("Logout from Application")
+	public void logout_from_application() {
+	   loginpage.logout(false);
+	  
+	   loginpage.login();
+	   loginpage.logout(true);
+	}
 
 }
