@@ -26,7 +26,7 @@ public class ActionUtilities extends DriverFactory{
 	public void sendValues(By bylocator, String text)
 	{
 		try {
-			logger.info("text box started editing ");
+			logger.info("text box started editing");
 			driver.findElement(bylocator).clear();
 			logger.info("text box filling details");
 			driver.findElement(bylocator).sendKeys(text);

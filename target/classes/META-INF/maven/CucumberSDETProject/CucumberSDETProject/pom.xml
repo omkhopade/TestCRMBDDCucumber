@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>TestCRMBDDCucumber</groupId>
-  <artifactId>TestCRMBDDCucumber</artifactId>
+  <groupId>CucumberSDETProject</groupId>
+  <artifactId>CucumberSDETProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+ 
 
   <name>TestCRMBDDCucumber</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>http://maven.apache.org</url>
 
  	<properties>
 
@@ -66,7 +67,7 @@
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>7.9.0</version>
-    <scope>test</scope>
+  
 </dependency>
 
 <!-- ========== EXTENT REPORTS ADAPTER FOR CUCUMBER 7 ========== -->
@@ -97,11 +98,6 @@
     <artifactId>poi-ooxml</artifactId>
     <version>5.2.5</version>
 </dependency>
-		<dependency>
-			<groupId>com.framework</groupId>
-			<artifactId>com.framework</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	
 <dependency>
 
@@ -148,11 +144,16 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven.surefire.version}</version>
-				<configuration>
-					<parallel>methods</parallel> 
-					<useUnlimitedThreads>true</useUnlimitedThreads>
-				</configuration>
 			</plugin>
+
+<plugin>
+	
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-clean-plugin</artifactId>
+    <version>3.4.0</version>
+
+
+</plugin>
       </plugins>
     </pluginManagement>
   </build>
