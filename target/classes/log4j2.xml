@@ -1,13 +1,13 @@
-<configuration status="WARN">
+<Configuration status="WARN">
 <!--  ================== APPENDERS ==================  -->
-<appenders>
+<Appenders>
 <!--  Console Appender  -->
 <Console name="Console" target="SYSTEM_OUT">
 <PatternLayout pattern="%d{HH:mm:ss.SSS} [Thread-%t] %-5level [%C{36}].%M - %msg%n"/>
 </Console>
-</appenders>
+</Appenders>
 <!--  ================== LOGGERS ==================  -->
-<loggers>
+<Loggers>
 <!--  Your project logs  -->
 <logger name="com" level="INFO" additivity="true">
 <appenderRef ref="Console"/>
@@ -15,5 +15,5 @@
 <root level="INFO">
 <appenderRef ref="Console"/>
 </root>
-</loggers>
-</configuration>
+</Loggers>
+</Configuration>
