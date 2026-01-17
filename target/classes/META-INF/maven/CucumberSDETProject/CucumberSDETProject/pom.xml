@@ -143,13 +143,15 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven.surefire.version}</version>
-    <configuration>
-        <forkCount>0</forkCount>
-        <redirectTestOutputToFile>false</redirectTestOutputToFile>
-        <printSummary>true</printSummary>
-        <useFile>false</useFile>
-    </configuration>
+				<version>3.5.0</version>
+					<configuration>
+						<includes>
+							<include>**/ParallelRunner.java</include>
+						</includes>
+						<parallel>methods</parallel>
+						<threadCount>3</threadCount>
+						<useUnlimitedThreads>false</useUnlimitedThreads>
+					</configuration>
 			</plugin>
 
 <plugin>
