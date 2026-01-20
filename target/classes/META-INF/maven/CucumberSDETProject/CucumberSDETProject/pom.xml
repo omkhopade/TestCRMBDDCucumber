@@ -88,18 +88,6 @@
 
 <!-- ========== APACHE POI ========== -->
 <dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi</artifactId>
-    <version>5.2.5</version>
-</dependency>
-
-<dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi-ooxml</artifactId>
-    <version>5.2.5</version>
-</dependency>
-	
-<dependency>
 
     <groupId>org.apache.logging.log4j</groupId>
 
@@ -120,9 +108,35 @@
 
 </dependency>
 <dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>5.3.0</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>5.3.0</version>
+</dependency>
+
+<dependency>
     <groupId>commons-io</groupId>
     <artifactId>commons-io</artifactId>
-    <version>2.11.0</version> <!-- Use the latest version -->
+    <version>2.18.0</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-collections4</artifactId>
+    <version>4.5.0-M3</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml-schemas</artifactId>
+    <version>4.1.2</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlbeans</groupId>
+    <artifactId>xmlbeans</artifactId>
+    <version>5.3.0</version>
 </dependency>
 </dependencies>
  
