@@ -17,7 +17,7 @@ public class LoginSteps extends DriverFactory{
 	@Given("Verify Login Page Title with {string}")
 	public void verify_login_page_title_with(String string) {
 		driver=DriverFactory.getDriver();
-		ActionUtilities.compareValues("Free CR", driver.getTitle());
+		ActionUtilities.compareValues("Free CRM", driver.getTitle());
 
 
 	}

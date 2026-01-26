@@ -41,14 +41,16 @@ public class LoginPage extends DriverFactory {
 	{
 		if(closeDriver.equals(false))
 		{
-			action.clickButton(Setting);
-			action.clickButton(Logout);
+			
+			action.clickButton(Setting, "Setting");
+			action.clickButton(Logout, "Logout");
 		}
 		else
 		{
-			action.clickButton(Setting);
+			
+			action.clickButton(Setting, "Setting");
 			logger.info("clicked on Setting button ");
-			action.clickButton(Logout);
+			action.clickButton(Logout, "Logout");
 			logger.info("successfullt clicked on Logout button");
 			driver.quit();
 		}

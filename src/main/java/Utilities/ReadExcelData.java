@@ -2,7 +2,6 @@ package Utilities;
 
 import java.io.FileInputStream;
 import java.util.HashMap;
-import java.util.Map.Entry;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -11,8 +10,6 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ReadExcelData {
-
-
 
 	public static String path=".\\TestData\\TestData.xlsx";
 	public static XSSFWorkbook workbook;
@@ -114,23 +111,6 @@ public class ReadExcelData {
 		}
 
 		return map;
-
-	}
-
-	public static void main(String[] args) {
-
-		
-		HashMap<String, String> map1= new HashMap<String, String>();
-		map1=readDataFromPool(2);
-		System.out.println("Address is : "+map1.get("Address"));
-		
-		
-		for(Entry<String, String> entry : map1.entrySet())
-		{
-			System.out.print(entry.getKey() + " " + entry.getValue());
-			System.out.println();
-		}
-
 
 	}
 
