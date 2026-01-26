@@ -2,8 +2,8 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>CucumberSDETProject</groupId>
-  <artifactId>CucumberSDETProject</artifactId>
+  <groupId>TestCRMBDDCucumber</groupId>
+  <artifactId>TestCRMBDDCucumber</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
  
@@ -54,21 +54,6 @@
     <scope>test</scope>
 </dependency>
 
-<!-- If using TestNG runner -->    
-<dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-testng</artifactId>
-    <version>7.14.0</version>
-    <scope>test</scope>
-</dependency>
-
-<!-- ========== TESTNG (LATEST) ========== -->
-<dependency>
-    <groupId>org.testng</groupId>
-    <artifactId>testng</artifactId>
-    <version>7.9.0</version>
-  
-</dependency>
 
 <!-- ========== EXTENT REPORTS ADAPTER FOR CUCUMBER 7 ========== -->
 <dependency>
@@ -158,11 +143,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.5.0</version>
-		          <configuration>
-					  <suiteXmlFiles>
-						  <suiteXmlFile>master.xml</suiteXmlFile>
-					  </suiteXmlFiles>
-				  </configuration>
 			</plugin>
 
 <plugin>

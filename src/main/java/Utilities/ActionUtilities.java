@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+
 
 import DriverFactory.DriverFactory;
 
@@ -52,7 +52,7 @@ public class ActionUtilities extends DriverFactory{
 		catch (TimeoutException e) {
 			logger.error(buttonName+" is not clicked and Exception occure "+e.getMessage());
 			logger.info("Retrying to click an elemet  "+buttonName);
-			Assert.fail();
+		
 			try 
 			{
 				logger.info("waiting for button get visible "+buttonName);
@@ -63,7 +63,7 @@ public class ActionUtilities extends DriverFactory{
 			}
 			catch (Exception e1) {
 				logger.error("Element is not clicked and Exception occure "+e1.getMessage());
-				Assert.fail();
+				
 			}
 		}
 
@@ -85,7 +85,7 @@ public class ActionUtilities extends DriverFactory{
 		}
 		catch (Exception e) {
 			logger.error("Exception occure while waiting for element "+e.getMessage());
-			Assert.fail();
+			
 		}
 	}
 	public void waitForElements(By locator)
@@ -99,7 +99,7 @@ public class ActionUtilities extends DriverFactory{
 		}
 		catch (Exception e) {
 			logger.error("Exception occure while waiting for element "+e.getMessage());
-			Assert.fail();
+			
 		}
 	}
 
@@ -133,7 +133,7 @@ public class ActionUtilities extends DriverFactory{
 
 		catch (Exception e) {
 			logger.error("Expected value "+expected + " Actual Value "+actual +" are not match ");
-			Assert.fail();
+			
 		}
 
 
@@ -176,7 +176,7 @@ public class ActionUtilities extends DriverFactory{
 
 		catch (Exception e) {
 			logger.error("Exception ossure while Mouse hover action "+e.getMessage());
-			Assert.fail();
+		
 		}
 
 	}

@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 		plugin = {"pretty"},
 		dryRun = false
 		)
-public class CreateTask {
+public class CucumberTest {
 	
 	
 	
