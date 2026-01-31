@@ -5,15 +5,25 @@
 <Console name="Console" target="SYSTEM_OUT">
 <PatternLayout pattern="%d{HH:mm:ss.SSS} [Thread-%t] %-5level [%C{36}].%M - %msg%n"/>
 </Console>
-</Appenders>
+
+       <!-- HTML File Appender -->
+        <File name="LoggerFile" fileName="target/logs/app.log" append="false">
+       			 <PatternLayout pattern="%d{HH:mm:ss.SSS} [Thread-%t] %-5level [%C{36}].%M - %msg%n"/>
+        </File>
+        
+ </Appenders>
 <!--  ================== LOGGERS ==================  -->
 <Loggers>
 <!--  Your project logs  -->
 <logger name="com" level="INFO" additivity="true">
 <appenderRef ref="Console"/>
+<AppenderRef ref="LoggerFile"/>
 </logger>
 <root level="INFO">
 <appenderRef ref="Console"/>
+<AppenderRef ref="LoggerFile"/>
 </root>
 </Loggers>
 </Configuration>
+
+

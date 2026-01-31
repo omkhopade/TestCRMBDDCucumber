@@ -9,7 +9,9 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = {"Features//Task.feature"},
 		glue = {"StepDefinition","AppHooks"},
-		plugin = {"pretty"},
+		plugin = {"pretty",
+				
+				"html:target/cucumber-reports/cucumber-reports.html"},
 		dryRun = false
 		)
 public class CucumberTest {

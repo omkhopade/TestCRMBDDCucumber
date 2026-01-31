@@ -102,8 +102,8 @@ public class TaskUtilities extends DriverFactory{
 			action.mouseHoverToElement(CreateButton);
 			action.clickButton(CreateButton,"Create Button");
 			action.sendValuesToField(map.get("Title"),"Title", Title);
-			action.clickButton(AssingedTo, "Assinged To");
-			action.clickButton(AssingedToOmkar,"Assinged To Drop down");
+			action.clickButton(AssingedTo, "Assinged_To");
+			action.clickButton(AssingedToOmkar,"Assinged To Dropdown");
 			action.clickButton(SaveButton, "Save Button");
 
 		}

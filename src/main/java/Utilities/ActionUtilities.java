@@ -18,8 +18,10 @@ public class ActionUtilities extends DriverFactory{
 
 	WebDriver driver;
 	Actions action;
+	ScreenShotsUtils scr;
 	public ActionUtilities(WebDriver driver) {
 		this.driver=driver;
+		this.scr= new ScreenShotsUtils(driver); 
 		this.action= new Actions(driver);
 	}
 
@@ -48,6 +50,7 @@ public class ActionUtilities extends DriverFactory{
 			logger.info("Trying to click "+buttonName);
 			action.click(driver.findElement(locator)).build().perform();
 			logger.info("Element is clicked succcessfully ");	
+			logger.info("Screenshot capture for "+buttonName+ " at location "+scr.getCaptureScreenShot(buttonName));
 		}
 		catch (TimeoutException e) {
 			logger.error(buttonName+" is not clicked and Exception occure "+e.getMessage());
@@ -191,6 +194,7 @@ public class ActionUtilities extends DriverFactory{
 			driver.findElement(locator).clear();
 			logger.info(value +" entering to "+TextFieldname);
 			driver.findElement(locator).sendKeys(value);
+			//scr.getCaptureScreenShot(TextFieldname);
 			logger.info(value+" is updated in field  "+TextFieldname);
 		}
 
