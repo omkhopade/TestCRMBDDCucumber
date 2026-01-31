@@ -35,7 +35,8 @@ public class ScreenShotsUtils extends DriverFactory{
 			}
 			
 			Path path=Paths.get("target","screenshots",actionName+".png");
-			Files.createDirectories(path);
+			Path path1=Paths.get("target","screenshots");
+			Files.createDirectories(path1);
 			pathfile=path.toString();
 			pathuri=path.toUri().toString();
 			logger.info("Catpturing screenshot for "+actionName);
