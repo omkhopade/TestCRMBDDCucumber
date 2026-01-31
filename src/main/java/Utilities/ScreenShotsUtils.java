@@ -28,6 +28,7 @@ public class ScreenShotsUtils extends DriverFactory{
 		String pathfile=null;
 		String BuildUrl=null;
 		String ReturnPath=null;
+		String pathFileLocal=null;
 		try
 		{
 			if(actionName.contains(" "))
@@ -52,7 +53,8 @@ public class ScreenShotsUtils extends DriverFactory{
 
 			else
 			{
-				ReturnPath=pathfile;
+				pathFileLocal=screenshotPath.toUri().toString();
+				ReturnPath=System.getProperty("user.dir")+pathFileLocal;
 			}
 			logger.info("screen shot cature successfully for "+actionName);
 
