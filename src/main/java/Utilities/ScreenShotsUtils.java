@@ -1,6 +1,7 @@
 package Utilities;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -33,7 +34,8 @@ public class ScreenShotsUtils extends DriverFactory{
 				actionName=actionName.replaceAll(" ", "_");
 			}
 			
-			Path path=Paths.get(System.getProperty("user.dir"),"target","screenshots",actionName+".png").toAbsolutePath();
+			Path path=Paths.get("target","screenshots",actionName+".png");
+			Files.createDirectories(path);
 			pathfile=path.toString();
 			pathuri=path.toUri().toString();
 			logger.info("Catpturing screenshot for "+actionName);
