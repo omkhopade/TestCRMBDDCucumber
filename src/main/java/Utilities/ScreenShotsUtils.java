@@ -33,16 +33,21 @@ public class ScreenShotsUtils extends DriverFactory{
 			{
 				actionName=actionName.replaceAll(" ", "_");
 			}
-			
-			Path path=Paths.get("target","screenshots",actionName+".png");
-			Path path1=Paths.get("target","screenshots");
-			Files.createDirectories(path1);
-			pathfile=path.toString();
-			pathuri=path.toUri().toString();
+
+			Path screenshotPath = Paths.get("target", "screenshots", actionName + ".png");
+			Files.createDirectories(screenshotPath.getParent());
+			pathfile = screenshotPath.toString();
+			pathuri  = screenshotPath.toUri().toString();
 			logger.info("Catpturing screenshot for "+actionName);
 			TakesScreenshot ts =(TakesScreenshot)driver;
 			File src=ts.getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(src, new File(pathfile));
+			logger.info("screen shot cature successfully for ");
+			String BuildUrl=System.getenv("BUILD_URL");
+			if(BuildUrl!=null)
+			{
+				logger.info(BuildUrl+pathfile);
+			}
 			logger.info("screen shot cature successfully for "+actionName);
 
 		}
