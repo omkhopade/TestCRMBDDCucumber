@@ -27,6 +27,7 @@ public class ScreenShotsUtils extends DriverFactory{
 	{
 		String pathfile=null;
 		String BuildUrl=null;
+		String ReturnPath=null;
 		try
 		{
 			if(actionName.contains(" "))
@@ -46,7 +47,12 @@ public class ScreenShotsUtils extends DriverFactory{
 			if(BuildUrl!=null)
 			{
 				System.out.println("inside build path");
-				logger.info(BuildUrl+pathfile);
+				ReturnPath=BuildUrl+"/artifact/"+pathfile;
+			}
+
+			else
+			{
+				ReturnPath=pathfile;
 			}
 			logger.info("screen shot cature successfully for "+actionName);
 
@@ -56,7 +62,7 @@ public class ScreenShotsUtils extends DriverFactory{
 			logger.error("Exception occured while caturing screenshots "+e.getMessage());
 		}
 
-		return BuildUrl+"/artifact/"+pathfile;
+		return ReturnPath;
 	}
 
 
