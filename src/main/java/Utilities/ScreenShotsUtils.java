@@ -26,7 +26,6 @@ public class ScreenShotsUtils extends DriverFactory{
 	public String getCaptureScreenShot(String actionName)
 	{
 		String pathfile=null;
-		String pathuri=null;
 		String BuildUrl=null;
 		try
 		{
@@ -38,7 +37,6 @@ public class ScreenShotsUtils extends DriverFactory{
 			Path screenshotPath = Paths.get("target", "screenshots", actionName + ".png");
 			Files.createDirectories(screenshotPath.getParent());
 			pathfile = screenshotPath.toString();
-			pathuri  = screenshotPath.toUri().toString();
 			logger.info("Catpturing screenshot for "+actionName);
 			TakesScreenshot ts =(TakesScreenshot)driver;
 			File src=ts.getScreenshotAs(OutputType.FILE);
@@ -58,7 +56,7 @@ public class ScreenShotsUtils extends DriverFactory{
 			logger.error("Exception occured while caturing screenshots "+e.getMessage());
 		}
 
-		return BuildUrl+pathfile;
+		return BuildUrl+"/artifact/"+pathfile;
 	}
 
 
