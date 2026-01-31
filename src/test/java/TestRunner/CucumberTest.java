@@ -12,7 +12,8 @@ import io.cucumber.junit.CucumberOptions;
 		plugin = {"pretty",
 				
 				"html:target/cucumber-reports/cucumber-reports.html"},
-		dryRun = false
+		dryRun = false,
+		monochrome = true
 		)
 public class CucumberTest {
 	
