@@ -54,7 +54,7 @@ public class ScreenShotsUtils extends DriverFactory{
 			else
 			{
 				pathFileLocal=screenshotPath.toUri().toString();
-				ReturnPath=System.getProperty("user.dir")+pathFileLocal;
+				ReturnPath=pathFileLocal;
 			}
 			logger.info("screen shot cature successfully for "+actionName);
 

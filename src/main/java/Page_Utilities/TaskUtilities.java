@@ -17,17 +17,17 @@ import Utilities.ReadExcelData;
 
 public class TaskUtilities extends DriverFactory{
 
-	By Menu = By.xpath("//span[contains(text(),'Home')]/ parent :: a");
-	By rows= By.xpath("//div[@class='table-wrapper']/table//tbody//tr");
-	By DeleteButton = By.xpath("//div[@class='table-wrapper']/table/tbody/tr/td[7]/button");
-	By ConfirmDelete = By.xpath("//div[contains(text(),'Confirm Deletion')]/parent :: div // button[2]");
-	By NoRecords = By.xpath("//div[@class='table-wrapper']/table/tbody/tr//p");
-	By CreateButton= By.xpath("//button[starts-with(text(),'Create')]");
-	By Title = By.xpath("//input[@name='title']");
-	By AssingedTo =By.xpath("//div[@class='ui field']/label[text()='Assigned To']/ parent :: div /div");
-	By AssingedToOmkar=By.xpath("//div[@class='ui field']/label[text()='Assigned To']/ parent :: div /div/div[2]");
-	By SaveButton= By.xpath("//button[text()='Save']");
-	By TaskName=By.xpath("//div[@id='dashboard-toolbar']//span");
+private static 	By Menu = By.xpath("//span[contains(text(),'Home')]/ parent :: a");
+private static	By rows= By.xpath("//div[@class='table-wrapper']/table//tbody//tr");
+private static	By DeleteButton = By.xpath("//div[@class='table-wrapper']/table/tbody/tr/td/button/i[@class='trash icon']");
+private static	By ConfirmDelete = By.xpath("//div[contains(text(),'Confirm Deletion')]/parent :: div // button[2]");
+private static	By NoRecords = By.xpath("//div[@class='table-wrapper']/table/tbody/tr//p");
+private static	By CreateButton= By.xpath("//button[starts-with(text(),'Create')]");
+private static	By Title = By.xpath("//input[@name='title']");
+private static	By AssingedTo =By.xpath("//div[@class='ui field']/label[text()='Assigned To']/ parent :: div /div");
+private static	By AssingedToOmkar=By.xpath("//div[@class='ui field']/label[text()='Assigned To']/ parent :: div /div/div[2]");
+private static	By SaveButton= By.xpath("//button[text()='Save']");
+private static	By TaskName=By.xpath("//div[@id='dashboard-toolbar']//span");
 
 
 
@@ -37,15 +37,15 @@ public class TaskUtilities extends DriverFactory{
 
 
 
-	WebDriver driver;
-	ActionUtilities action;
-	public TaskUtilities(WebDriver driver)
+	public static   WebDriver driver;
+	public  static ActionUtilities action;
+	public  TaskUtilities(WebDriver driver)
 	{
-		this.driver=driver;
-		this.action= new ActionUtilities(driver);
+		TaskUtilities.driver=driver;
+		TaskUtilities.action= new ActionUtilities(driver);
 	}
 
-	public void deleteTask(String DeleteTask)
+	public static void deleteTask(String DeleteTask)
 	{
 
 

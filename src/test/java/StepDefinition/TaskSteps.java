@@ -3,9 +3,10 @@ package StepDefinition;
 import org.openqa.selenium.WebDriver;
 
 import DriverFactory.DriverFactory;
-import Pages.LoginPage;
+import Page_Utilities.LoginPage;
+import Page_Utilities.TaskUtilities;
 import Utilities.ActionUtilities;
-import Utilities.TaskUtilities;
+import Utilities.ContactUtilities;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,32 +14,42 @@ import io.cucumber.java.en.When;
 public class TaskSteps extends DriverFactory{
 	
 	WebDriver driver;
-	String Task=null;
-	TaskUtilities  task= new TaskUtilities(DriverFactory.getDriver());
-	LoginPage login = new LoginPage(DriverFactory.getDriver());
+	ContactUtilities contact;
+	LoginPage loginutils;
+	TaskUtilities task_utils;
 	
 	@Given("Login into Applicationss")
 	public void login_into_applicationss() {
-		login.login();
+		driver=DriverFactory.getDriver();
+		contact = new ContactUtilities();
+		task_utils = new TaskUtilities(driver);
+		loginutils= new LoginPage(driver);
+		loginutils.login();
 	}
 
 	@Given("Home Page is Open")
 	public void home_page_is_open() {
-	  driver=DriverFactory.getDriver();
+	 
 	  ActionUtilities.compareValues("Free CR", driver.getTitle());
 	}
 	@When("User opens the Task take and Create new Task")
 	public void user_opens_the_task_take_and_create_new_task() {
-		Task=task.fillTaskDetails(1);
-		System.out.println("task name is "+Task);
+		task_utils.fillTaskDetails(1);
+		
 	    
 	}
 	@Then("User is able to search newly created task")
 	public void user_is_able_to_search_newly_created_task() {
 	  
-		login.logout(true);
+		System.out.println("Record found successfully ");
+		loginutils.logout(true);
 	}
 	
+	@When("User opens the Contact page and create new contact")
+	public void user_opens_the_contact_page_and_create_new_contact() {
+		
+		contact.fillContactDetails(2);
+	}
 	
 	
 }

@@ -16,18 +16,18 @@ import DriverFactory.DriverFactory;
 
 public class ActionUtilities extends DriverFactory{
 
-	WebDriver driver;
-	Actions action;
-	ScreenShotsUtils scr;
+	public static WebDriver driver;
+	public static Actions action;
+	public static ScreenShotsUtils scr;
 	public ActionUtilities(WebDriver driver) {
-		this.driver=driver;
-		this.scr= new ScreenShotsUtils(driver); 
-		this.action= new Actions(driver);
+		ActionUtilities.driver=driver;
+		ActionUtilities.scr= new ScreenShotsUtils(driver); 
+		ActionUtilities.action= new Actions(driver);
 	}
 
 
 
-	public void sendValues(By bylocator, String text)
+	public static void sendValues(By bylocator, String text)
 	{
 		try {
 			logger.info("text box started editing");
@@ -41,7 +41,7 @@ public class ActionUtilities extends DriverFactory{
 		}
 	}
 
-	public void clickButton(By locator, String buttonName)
+	public static void clickButton(By locator, String buttonName)
 	{
 		try 
 		{
@@ -77,7 +77,7 @@ public class ActionUtilities extends DriverFactory{
 
 
 
-	public void waitForElement(By locator)
+	public static  void waitForElement(By locator)
 	{
 		try {
 
@@ -106,7 +106,7 @@ public class ActionUtilities extends DriverFactory{
 		}
 	}
 
-	public void poolingWaitForElement(By locator)
+	public static void poolingWaitForElement(By locator)
 	{
 		FluentWait<WebDriver> fluent = new FluentWait<WebDriver>(driver)
 
@@ -167,7 +167,7 @@ public class ActionUtilities extends DriverFactory{
 
 
 
-	public void mouseHoverToElement(By locator) {
+	public static void mouseHoverToElement(By locator) {
 
 		try {
 
@@ -186,7 +186,7 @@ public class ActionUtilities extends DriverFactory{
 
 
 
-	public void sendValuesToField(String value, String TextFieldname, By locator)
+	public static  void sendValuesToField(String value, String TextFieldname, By locator)
 	{
 		try {
 			waitForElement(locator);
@@ -205,7 +205,7 @@ public class ActionUtilities extends DriverFactory{
 	}
 
 
-	public String getTextValue(By locator)
+	public static String getTextValue(By locator)
 	{
 		String Title="";
 		try

@@ -16,12 +16,12 @@ import org.openqa.selenium.edge.EdgeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverFactory {
-	
+
 	public static ThreadLocal<WebDriver> tldriver = new ThreadLocal<>();
 	public static Properties prop;
 	public static Logger logger;
-	
-	
+
+
 	public static WebDriver initialized ()
 	{
 		logger = LogManager.getLogger(DriverFactory.class);
@@ -33,11 +33,11 @@ public class DriverFactory {
 			logger.info("properties object loaded and reading data from config properties ");
 		} catch (Exception e) {
 			logger.error("caught exception "+e.getMessage());
-			
+
 		}
-		
+
 		if(prop.get("browser").equals("chrome")) {
-			
+
 			ChromeOptions options = new ChromeOptions();
 			Map<String, Object> prefs = new HashMap<>();
 			prefs.put("credentials_enable_service", false);
@@ -45,24 +45,22 @@ public class DriverFactory {
 			prefs.put("profile.password_manager_leak_detection", false);
 
 			options.setExperimentalOption("prefs", prefs);
-			
+
 			logger.info("Started Chrome Driver");
 			WebDriverManager.chromedriver().setup();
 			logger.info("set up tl driver to Chromedriver");
 			tldriver.set(new ChromeDriver(options));
-			
+
 		}
 		else if (prop.get("browser").equals("msedge")) {
 			WebDriverManager.edgedriver().setup();
 			tldriver.set(new EdgeDriver());
 		}
-		
+
 		return getDriver();
 
+
 	}
-	
-	
-	
 	public static WebDriver getDriver()
 	{
 		return tldriver.get();

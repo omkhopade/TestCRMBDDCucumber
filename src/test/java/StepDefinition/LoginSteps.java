@@ -3,7 +3,7 @@ package StepDefinition;
 import org.openqa.selenium.WebDriver;
 
 import DriverFactory.DriverFactory;
-import Pages.LoginPage;
+import Page_Utilities.LoginPage;
 import Utilities.ActionUtilities;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
